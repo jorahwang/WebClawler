@@ -27,8 +27,10 @@ def save_img(img_url):
 html = request.urlopen("http://jandan.net/pic")
 bsObj = BeautifulSoup(html)
 print(bsObj.img)
+#imgaes = bsObj.findAll("img", {"src": re.compile("//[a-zA-Z0-9]+\.sinaimg\.cn/.+\.(jpg|png|gif)")})
 imgaes = bsObj.findAll("img", {"src": re.compile("//[a-zA-Z0-9]+\.sinaimg\.cn/.+\.(jpg|png|gif)")})
 for image in imgaes:
-    print(image["src"])
+    #print(image)
+    #print(image["src"])
     save_img("https:"+image["src"])
 
